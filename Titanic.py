@@ -14,6 +14,8 @@ from seaborn import countplot
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split 
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 def TitanicLogistic() :
     print("Inside Logistic Function")
@@ -101,8 +103,14 @@ def TitanicLogistic() :
 
     print("-----------------------------Final Output of This Alogorithm-------------------------------")
 
-    output = obj.predict(data_test)
+    output = obj.predict(data_test);
     print(output)
+
+    print("Classification Report of Logistic Regression");
+    print(classification_report(target_test,output));
+
+    print("Confusion Matrix of Logistic Regression");
+    print(confusion_matrix(target_test,output));
 
     Accuracy = accuracy_score(target_test,output)
     print("\nAccuracy of Logistic Regression Alogorithm is : ",Accuracy*100,"%")    
